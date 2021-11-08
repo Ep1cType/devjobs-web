@@ -1,0 +1,273 @@
+@import "src/styles/mixins";
+
+
+.app {
+  background-color: var(--lightGrey);
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.container {
+  max-width: 1188px;
+  margin: 0 auto;
+  padding: 0 39px;
+
+  @include for-tablet-portrait-only {
+    padding: 0 24px;
+  }
+}
+
+.pageHeader {
+  width: 100%;
+  height: 160px;
+  border-bottom-left-radius: 100px;
+  background-color: var(--violet);
+
+  &__triangle1 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 120px solid red;
+  }
+
+  &__triangle2 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 120px solid red;
+  }
+
+  &__triangle3 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 120px solid red;
+  }
+
+  &__menu {
+    padding-top: 44px;
+
+    @include for-phone-only {
+      padding-top: 32px;
+    }
+  }
+
+  &__logo {
+
+    &__title {
+      color: var(--white);
+      font-size: 34px;
+    }
+  }
+}
+
+.toggle {
+
+}
+
+//.filter {
+//  margin-top: -40px;
+//  margin-bottom: 105px;
+//
+//  @include for-tablet-portrait-only {
+//    margin-bottom: 70px;
+//  }
+//
+//  @include for-phone-only {
+//    margin-bottom: 57px;
+//  }
+//
+//  &__icon {
+//    position: absolute;
+//    top: 54%;
+//    //top: 50%;
+//    //right: 0;
+//    margin-right: 3px;
+//    margin-top: -15px;
+//    font-size: 24px;
+//  }
+//
+//
+//  &__inputs {
+//    width: 100%;
+//    height: 80px;
+//    display: flex;
+//
+//    background-color: var(--white);
+//    border-radius: 6px;
+//  }
+//
+//  &__company {
+//    width: 463px;
+//    padding: 28px 32px;
+//    border-right: 1px solid var(--lightGrey);
+//    position: relative;
+//
+//    @include for-phone-only {
+//      border: none;
+//    }
+//
+//    &__group {
+//      display: none;
+//
+//      @include for-phone-only {
+//        display: flex;
+//        align-items: center;
+//      }
+//    }
+//
+//
+//
+//    &__input {
+//      outline: none;
+//      text-overflow: ellipsis;
+//      width: 100%;
+//      height: 100%;
+//      padding-left: 30px;
+//      border: none;
+//
+//      font-size: 16px;
+//      color: var(--midnight);
+//    }
+//  }
+//
+//  &__location {
+//    @include for-phone-only {
+//      display: none;
+//    }
+//
+//
+//    @extend .filter__company;
+//    width: 300px;
+//
+//    &__input {
+//      @extend .filter__company__input;
+//    }
+//  }
+//
+//  &__time {
+//    @include for-phone-only {
+//      display: none;
+//    }
+//    //@extend .filter__company;
+//    display: flex;
+//    align-items: center;
+//    padding: 28px 16px;
+//
+//    &__input {
+//      outline: none;
+//      border: none;
+//      min-height: 24px;
+//      min-width: 24px;
+//      border-radius: 3px;
+//      margin-right: 16px;
+//    }
+//
+//    &__label {
+//      color: var(--midnight);
+//
+//      font-size: 16px;
+//      line-height: 16px;
+//      font-weight: 700;
+//      overflow: hidden;
+//    }
+//  }
+//
+//  &__submit {
+//    display: flex;
+//    align-items: center;
+//    padding: 16px;
+//
+//    &__button {
+//      cursor: pointer;
+//      border: none;
+//      font: inherit;
+//      color: var(--white);
+//      background-color: var(--violet);
+//
+//
+//
+//      padding: 16px 30px;
+//      border-radius: 5px;
+//
+//      @include for-phone-only {
+//        padding: 14px;
+//      }
+//
+//
+//      &:hover {
+//        background-color: var(--lightViolet);
+//      }
+//    }
+//
+//    &__text {
+//      font-size: 16px;
+//      line-height: 16px;
+//      font-weight: 700;
+//
+//      @include for-phone-only {
+//        display: none;
+//      }
+//    }
+//
+//    &__icon {
+//      display: none;
+//
+//      @include for-phone-only {
+//        display: block;
+//      }
+//
+//    }
+//  }
+//
+//}
+
+
+
+.companyList {
+  //display: flex;
+  //flex-wrap: wrap;
+  //justify-content: space-between;
+
+
+  display: grid;
+  //justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    font: inherit;
+    color: var(--white);
+    background-color: var(--violet);
+
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+
+    padding: 16px 30px;
+    border-radius: 5px;
+
+    margin-bottom: 100px;
+
+    &:hover {
+      background-color: var(--lightViolet);
+    }
+  }
+}
+
+

@@ -1,0 +1,65 @@
+@import "src/styles/mixins";
+
+.companyCard {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--white);
+  height: 228px;
+
+  padding: 36px 32px;
+  border-radius: 6px;
+
+  margin-bottom: 65px;
+
+  @include for-phone-only {
+    margin-bottom: 49px;
+  }
+
+
+  &__avatar {
+    margin-top: -61px;
+
+    &__img {
+      height: 50px;
+      width: 50px;
+
+      border-radius: 15px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  &__vocation {
+    &__title {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__time {
+    color: var(--gray);
+
+    font-size: 16px;
+    line-height: 16px;
+
+    margin-bottom: 17px;
+  }
+
+  &__company {
+    @extend .companyCard__time;
+    margin-bottom: 44px;
+  }
+
+  &__location {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+
+    color: var(--violet);
+  }
+}

@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+ul > li {
+  list-style: none;
+}
+
+:root {
+  --violet: rgb(89, 100, 244);
+  --lightViolet: rgb(147, 155, 244);
+  --veryDarkBlue: rgb(25, 32, 45);
+  --midnight: rgb(18, 23, 33);
+
+  --white: rgb(255, 255, 255);
+  --lightGrey: rgb(244, 246, 248);
+  --gray: rgb(157, 174, 194);
+  --darkGrey: rgb(110, 128, 152);
+}
