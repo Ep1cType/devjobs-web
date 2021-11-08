@@ -21,7 +21,7 @@ const CompanyCard: React.FC<CompanyCardProps> = (
   return (
     <li className={s.companyCard}>
       <div className={s.companyCard__avatar}>
-        <img className={s.companyCard__avatar__img} src="https://i.ibb.co/tbCNhFp/1.png" alt="company_avatar"/>
+        <img className={s.companyCard__avatar__img} src={icon} alt="company_avatar"/>
       </div>
       <div className={s.companyCard__info}>
         <div className={s.companyCard__time}>

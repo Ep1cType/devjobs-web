@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import CompanyCard from '../components/CompanyList/CompanyCard/CompanyCard';
 import Filter from '../components/Filter/Filter';
 
 import s from './MainPage.module.scss';
+import {useTypedSelector} from "../hooks/useTypedSelector";
+import {useActions} from "../hooks/useActions";
 
 const MainPage: React.FC = () => {
+  const {fetchCompanyList} = useActions()
+
+
+  const {companyList, isLoading, page, isError} = useTypedSelector(state => state.company);
 
   const [nameSearch, setNameSearch] = useState<string>('');
   const [locationSearch, setLocationSearch] = useState<string>('');
   const [timeWorkingCheck, setTimeWorkingCheck] = useState<boolean>(false);
+
+  useEffect(() => {
+    fetchCompanyList()
+  }, [])
 
   return (
     <div className={s.app}>
@@ -35,39 +45,18 @@ const MainPage: React.FC = () => {
         timeWorkingCheck={timeWorkingCheck}
         setNameSearch={setNameSearch}
       />
-      {/*{isLoading && <h2>LOADING</h2>}*/}
+      {isLoading && <h2>LOADING</h2>}
       <div className={s.mainSection}>
         <div className={s.container}>
           <ul className={s.companyList}>
-            {/*{companiesList*/}
-            {/*  ?*/}
-            {/*  companiesList.map((company: any) => (*/}
-            {/*    <CompanyCard icon={company.iconURL} time={company.publish_date} vocation={company.vocation} company={company.company} location={company.country}/>*/}
-            {/*  ))*/}
-            {/*  :*/}
-            {/*  <>Не найдено</>*/}
-            {/*}*/}
-            <CompanyCard
-              company={"Scoot"}
-              icon={""}
-              location={"United Kingdom"}
-              time={"5h ago . Full Time"}
-              vocation={"Midlevel Back End Engineer"}
-            />
-            <CompanyCard
-              company={"Scoot"}
-              icon={""}
-              location={"United Kingdom"}
-              time={"5h ago . Full Time"}
-              vocation={"Midlevel Back End Engineer"}
-            />
-            <CompanyCard
-              company={"Scoot"}
-              icon={""}
-              location={"United Kingdom"}
-              time={"5h ago . Full Time"}
-              vocation={"Midlevel Back End Engineer"}
-            />
+            {companyList
+              ?
+              companyList.map((company: any) => (
+                <CompanyCard icon={company.iconURL} time={company.publish_date} vocation={company.vocation} company={company.company} location={company.country}/>
+              ))
+              :
+              <>Не найдено</>
+            }
           </ul>
           <div className={s.pagination}>
             <button className={s.pagination__button}>
