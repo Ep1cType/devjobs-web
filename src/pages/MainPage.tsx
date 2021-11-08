@@ -52,7 +52,8 @@ const MainPage: React.FC = () => {
             {companyList
               ?
               companyList.map((company: any) => (
-                <CompanyCard icon={company.iconURL} time={company.publish_date} vocation={company.vocation} company={company.company} location={company.country}/>
+                <CompanyCard icon={company.iconURL} time={company.publish_date} vocation={company.vocation}
+                             company={company.company} location={company.country}/>
               ))
               :
               <>Не найдено</>
