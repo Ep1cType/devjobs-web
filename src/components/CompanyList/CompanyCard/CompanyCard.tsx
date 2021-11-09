@@ -1,8 +1,11 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom'
+
 import s from './CompanyCard.module.scss';
 
 interface CompanyCardProps {
+  id: string;
   icon: string;
   time: string;
   vocation: string;
@@ -17,6 +20,7 @@ const CompanyCard: React.FC<CompanyCardProps> = (
     location,
     time,
     vocation,
+    id
   }) => {
   return (
     <li className={s.companyCard}>
@@ -37,6 +41,9 @@ const CompanyCard: React.FC<CompanyCardProps> = (
       <div className={s.companyCard__location}>
         {location}
       </div>
+      <Link to={`${id}`}>
+        Переход по Айди
+      </Link>
     </li>
   );
 };
