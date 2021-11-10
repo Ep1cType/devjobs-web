@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 
 import s from './CompanyPage.module.scss'
+
 import {useParams} from "react-router-dom";
 
 const CompanyPage = () => {
