@@ -9,8 +9,7 @@ import {useActions} from "../hooks/useActions";
 const MainPage: React.FC = () => {
   const {fetchCompanyList} = useActions()
 
-
-  const {companyList, isLoading, page, isError} = useTypedSelector(state => state.company);
+  const {companyList, isLoading} = useTypedSelector(state => state.company);
 
   const [nameSearch, setNameSearch] = useState<string>('');
   const [locationSearch, setLocationSearch] = useState<string>('');
