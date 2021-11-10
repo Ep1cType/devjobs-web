@@ -15,12 +15,18 @@ const CompanyList: React.FC<CompanyListProps> = ({companyList}) => {
       {companyList
         ?
         companyList.map((company: any) => (
-          <CompanyCard key={company.id} id={company.id} icon={company.iconURL} time={company.publish_date} vocation={company.vocation}
-                       company={company.company} location={company.country}/>
+          <CompanyCard key={company.id}
+                       id={company.id}
+                       publish_date={company.publish_date}
+                       iconURL={company.iconURL}
+                       time={company.time}
+                       vocation={company.vocation}
+                       company={company.company}
+                       country={company.country}
+          />
         ))
         :
-        <>Не найдено</>
-      }
+        <>Не найдено</>}
     </ul>
   );
 };

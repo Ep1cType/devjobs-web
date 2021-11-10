@@ -8,10 +8,8 @@ import PageHeader from "../components/PageHeader/PageHeader";
 const Layout = () => {
   return (
     <div className={s.layout}>
-      <PageHeader />
-
-      <Outlet />
-
+      <PageHeader/>
+      <Outlet/>
     </div>
   );
 };

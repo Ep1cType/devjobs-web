@@ -1,35 +1,38 @@
 import React from 'react';
 
-import {Link} from 'react-router-dom'
+import {useNavigate, Location} from 'react-router-dom'
 
 import s from './CompanyCard.module.scss';
+import {ICompany} from "../../../types/ICompany";
 
-interface CompanyCardProps {
-  id: string;
-  icon: string;
-  time: string;
-  vocation: string;
-  company: string;
-  location: string;
-}
 
-const CompanyCard: React.FC<CompanyCardProps> = (
+const CompanyCard: React.FC<ICompany> = (
   {
     company,
-    icon,
-    location,
+    country,
+    iconURL,
+    publish_date,
     time,
     vocation,
     id
   }) => {
+
+  const navigate = useNavigate()
+
+
   return (
-    <li className={s.companyCard}>
+    <li className={s.companyCard} >
       <div className={s.companyCard__avatar}>
-        <img className={s.companyCard__avatar__img} src={icon} alt="company_avatar"/>
+        <img
+          onClick={() => navigate(`${id}`, {replace: false})}
+          className={s.companyCard__avatar__img}
+          src={iconURL}
+          alt="company_avatar"
+        />
       </div>
       <div className={s.companyCard__info}>
         <div className={s.companyCard__time}>
-          {time}
+          {publish_date} . {time}
         </div>
         <div className={s.companyCard__vocation}>
           <h3 className={s.companyCard__vocation__title}>{vocation}</h3>
@@ -39,11 +42,8 @@ const CompanyCard: React.FC<CompanyCardProps> = (
         </div>
       </div>
       <div className={s.companyCard__location}>
-        {location}
+        {country}
       </div>
-      <Link to={`${id}`}>
-        Переход по Айди
-      </Link>
     </li>
   );
 };

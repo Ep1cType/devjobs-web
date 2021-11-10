@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import MainPage from "./pages/MainPage";
 
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, Location} from 'react-router-dom'
 import Layout from "./layouts/Layout";
 import CompanyPage from "./pages/CompanyPage/CompanyPage";
 
 
 const App = (): JSX.Element => {
+
   return (
     <Routes>
       <Route path="/" element={<Layout/>}>
