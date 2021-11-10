@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-import s from './CompanyPage.module.scss';
+import s from './CompanyPage.module.scss'
+
 import {useParams} from "react-router-dom";
 
 const CompanyPage = () => {
@@ -8,8 +9,8 @@ const CompanyPage = () => {
   const {id} = useParams()
 
   return (
-    <div>
-      Company number {id}
+    <div style={{marginTop: "200px"}}>
+      Hello, you are on {id} page
     </div>
   );
 };
