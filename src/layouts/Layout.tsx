@@ -1,8 +1,8 @@
 import React from 'react';
-
 import {Outlet} from 'react-router-dom'
 
 import s from './Layout.module.scss';
+
 import PageHeader from "../components/PageHeader/PageHeader";
 
 const Layout = () => {

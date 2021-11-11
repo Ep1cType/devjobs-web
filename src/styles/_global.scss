@@ -7,9 +7,15 @@
   font-family: 'Kumbh Sans', sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
 ul > li {
   list-style: none;
 }
+
 
 :root {
   --violet: rgb(89, 100, 244);

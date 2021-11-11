@@ -33,30 +33,19 @@
 
   &__triangle2 {
     @extend .pageHeader__triangle1;
-    //position: absolute;
+
     left: 307px;
     top: -560px;
-    //width: 0;
-    //height: 0;
-    //border-left: 350px solid transparent;
-    //border-right: 350px solid transparent;
-    //border-bottom: 500px solid var(--lightViolet);
     transform: rotate(-37deg);
     border-radius: 10%;
-    //opacity: 0.2;
   }
 
   &__triangle3 {
     @extend .pageHeader__triangle1;
-    //position: absolute;
+
     right: 0;
     top: -280px;
     left: auto;
-    //width: 0;
-    //height: 0;
-    //border-left: 350px solid transparent;
-    //border-right: 350px solid transparent;
-    //border-bottom: 500px solid var(--lightViolet);
     transform: rotate(12deg);
     opacity: 0.2;
   }

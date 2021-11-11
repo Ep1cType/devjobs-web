@@ -1,35 +1,35 @@
 import React, {useEffect, useState} from 'react';
 
-
-import Filter from '../components/Filter/Filter';
 import s from './MainPage.module.scss';
+
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useActions";
+
+import Filter from '../components/Filter/Filter';
 import CompanyList from "../components/CompanyList/CompanyList";
 import Loader from "../components/Loader/Loader";
-import {createBrowserHistory} from "history";
 
 const MainPage: React.FC = () => {
-  const {fetchCompanyList} = useActions()
-
-  const history = createBrowserHistory()
-
-
-
+  const {fetchCompanyList} = useActions();
 
   const {companyList, isLoading, page, isError} = useTypedSelector(state => state.company);
 
   const [nameSearch, setNameSearch] = useState<string>('');
   const [locationSearch, setLocationSearch] = useState<string>('');
   const [timeWorkingCheck, setTimeWorkingCheck] = useState<boolean>(false);
+  // const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
 
   useEffect(() => {
-    fetchCompanyList();
-  }, [nameSearch])
+    if (companyList.length <= 0) {
+      fetchCompanyList();
+    }
+  }, [])
 
   return (
     <>
       <Filter
+        // isVisibleModal={isVisibleModal}
+        // setIsVisibleModal={setIsVisibleModal}
         locationSearch={locationSearch}
         nameSearch={nameSearch}
         setLocationSearch={setLocationSearch}

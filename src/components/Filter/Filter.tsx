@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import s from './Filter.module.scss';
 
-import searchIcon from '../../assets/icons/search.svg';
-import pinIcon from '../../assets/icons/pin.svg';
 import hopperIcon from '../../assets/icons/hopper.svg';
+import SearchIcon from "../../assets/icons/SearchIcon/SearchIcon";
+import Modal from '../Modal/Modal';
+import FilterGroup from "../FilterGroup/FilterGroup";
 
 
 interface FilterProps {
@@ -14,6 +15,8 @@ interface FilterProps {
   setNameSearch: React.Dispatch<React.SetStateAction<string>>;
   setLocationSearch: React.Dispatch<React.SetStateAction<string>>;
   setTimeWorkingCheck: React.Dispatch<React.SetStateAction<boolean>>;
+  // isVisibleModal: boolean;
+  // setIsVisibleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Filter: React.FC<FilterProps> = (
@@ -24,13 +27,26 @@ const Filter: React.FC<FilterProps> = (
     nameSearch,
     setLocationSearch,
     setNameSearch,
+    // isVisibleModal,
+    // setIsVisibleModal
   }) => {
+
+  const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
+
+  const openModal = () => {
+    setIsVisibleModal(true);
+  }
+
+  const closeModal = () => {
+    setIsVisibleModal(false);
+  }
+
   return (
     <div className={s.filter}>
       <div className={s.container}>
         <div className={s.filter__inputs}>
           <div className={s.filter__company}>
-            <img className={s.filter__icon} src={searchIcon} alt="filter company by name" />
+            <SearchIcon className={s.filter__icon}/>
             <input
               className={s.filter__company__input}
               type="text"
@@ -39,34 +55,29 @@ const Filter: React.FC<FilterProps> = (
               placeholder="Filter by title, companies, expertise…"
             />
           </div>
-          <div className={s.filter__location}>
-            <img className={s.filter__icon} src={pinIcon} alt="filter company by name" />
-            <input
-              className={s.filter__location__input}
-              type="text"
-              value={locationSearch}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLocationSearch(e.target.value)}
-              placeholder="Filter by location…"
+          <div className={s.filterGroup__container}>
+            <FilterGroup
+              locationSearch={locationSearch}
+              timeWorkingCheck={timeWorkingCheck}
+              setLocationSearch={setLocationSearch}
+              setTimeWorkingCheck={setTimeWorkingCheck}
             />
           </div>
-          <div className={s.filter__time}>
-            <input
-              className={s.filter__time__input}
-              type="checkbox"
-              checked={timeWorkingCheck}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTimeWorkingCheck(e.target.checked)}
+          <Modal active={isVisibleModal} closeModal={closeModal} >
+            <FilterGroup
+              locationSearch={locationSearch}
+              timeWorkingCheck={timeWorkingCheck}
+              setLocationSearch={setLocationSearch}
+              setTimeWorkingCheck={setTimeWorkingCheck}
             />
-            <label className={s.filter__time__label}>
-              Full Time Only
-            </label>
-          </div>
-          <div className={s.filter__company__group}>
-            <img src={hopperIcon} alt="filter group" />
-          </div>
+          </Modal>
           <div className={s.filter__submit}>
+            <div onClick={() => openModal()} className={s.filter__company__group}>
+              <img src={hopperIcon} alt="filter group"/>
+            </div>
             <button className={s.filter__submit__button}>
               <span className={s.filter__submit__text}>Search</span>
-              <img className={s.filter__submit__icon} src={searchIcon} alt="filter company by name" />
+              <SearchIcon className={s.filter__submit__icon}/>
             </button>
           </div>
         </div>

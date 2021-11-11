@@ -24,7 +24,7 @@ const CompanyCard: React.FC<ICompany> = (
     <li className={s.companyCard} >
       <div className={s.companyCard__avatar}>
         <img
-          onClick={() => navigate(`${id}`, {replace: false})}
+          onClick={() => navigate(`${id}`, {})}
           className={s.companyCard__avatar__img}
           src={iconURL}
           alt="company_avatar"
