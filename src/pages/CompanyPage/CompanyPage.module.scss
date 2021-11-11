@@ -1,0 +1,101 @@
+@import "src/styles/mixins";
+
+.companyHeader {
+  position: relative;
+  margin-top: -40px;
+  margin-bottom: 32px;
+
+  &__content {
+    width: 100%;
+    height: 140px;
+
+    display: flex;
+
+    background-color: var(--white);
+  }
+
+}
+
+.container {
+  max-width: 808px;
+  margin: 0 auto;
+  padding: 0 39px;
+
+  @include for-tablet-portrait-only {
+    padding: 0 24px;
+  }
+}
+
+.company {
+
+  &__avatar {
+
+    height: 100%;
+
+    &__img {
+      height: 140px;
+      width: 140px;
+    }
+  }
+
+  &__name {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__site {
+    font-size: 16px;
+    color: var(--gray);
+  }
+
+  &__menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    //align-items: center;
+
+    padding: 40px 40px;
+
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__nav{
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__button {
+    background-color: rgba(147, 155, 244, 0.1);
+    outline: none;
+    border: none;
+    padding: 16px 20px;
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--violet);
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(147, 155, 244, 0.35);
+    }
+  }
+}
+
+.companyInfo {
+
+  &__content {
+    display: flex;
+    width: 100%;
+
+    padding: 48px;
+
+
+    background-color: var(--white);
+  }
+
+}

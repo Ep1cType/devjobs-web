@@ -1,10 +1,11 @@
 import {ICompany} from "../../../types/ICompany";
 
 export interface CompanyState {
-  companyList: ICompany[],
-  isLoading: boolean,
-  isError: string,
-  page: number,
+  companyList: ICompany[];
+  isLoading: boolean;
+  isError: string;
+  perPage: number;
+  currentPage: number;
 }
 
 export enum CompanyActionEnum {
@@ -12,6 +13,7 @@ export enum CompanyActionEnum {
   SET_IS_LOADING = "SET_IS_LOADING",
   SET_IS_ERROR = "SET_IS_ERROR",
   SET_PAGE = "SET_PAGE",
+  SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
 }
 
 export interface SetCompanyListAction {
@@ -34,5 +36,10 @@ export interface SetPageAction {
   payload: number;
 }
 
+export interface SetCurrentPageAction {
+  type: CompanyActionEnum.SET_CURRENT_PAGE;
+  payload: number;
+}
+
 export type CompanyAction =
-  SetCompanyListAction | SetIsLoadingAction | SetIsErrorAction | SetPageAction
+  SetCompanyListAction | SetIsLoadingAction | SetIsErrorAction | SetPageAction | SetCurrentPageAction

@@ -10,20 +10,26 @@ import CompanyList from "../components/CompanyList/CompanyList";
 import Loader from "../components/Loader/Loader";
 
 const MainPage: React.FC = () => {
-  const {fetchCompanyList} = useActions();
+  const {fetchCompanyList, setCurrentPage} = useActions();
 
-  const {companyList, isLoading, page, isError} = useTypedSelector(state => state.company);
+  const {companyList, isLoading, perPage, isError, currentPage} = useTypedSelector(state => state.company);
 
   const [nameSearch, setNameSearch] = useState<string>('');
   const [locationSearch, setLocationSearch] = useState<string>('');
   const [timeWorkingCheck, setTimeWorkingCheck] = useState<boolean>(false);
-  // const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false);
+
+  const lastIndex = currentPage * perPage;
+  const CompanySlicedList = companyList.slice(0, lastIndex);
 
   useEffect(() => {
-    if (companyList.length <= 0) {
+    if (!companyList.length) {
       fetchCompanyList();
     }
   }, [])
+
+  const loadMore = () => {
+    setCurrentPage(currentPage + 1);
+  }
 
   return (
     <>
@@ -44,9 +50,9 @@ const MainPage: React.FC = () => {
             <Loader/>
             :
             <>
-              <CompanyList companyList={companyList}/>
+              <CompanyList companyList={CompanySlicedList}/>
               <div className={s.pagination}>
-                <button className={s.pagination__button}>
+                <button onClick={() => loadMore()} className={s.pagination__button}>
                   Load More
                 </button>
               </div>

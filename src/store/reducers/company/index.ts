@@ -4,7 +4,8 @@ const initialState: CompanyState = {
   companyList: [],
   isLoading: false,
   isError: "",
-  page: 0,
+  perPage: 12,
+  currentPage: 1,
 }
 
 export default function companyReducer(state = initialState, action: CompanyAction): CompanyState {
@@ -33,7 +34,13 @@ export default function companyReducer(state = initialState, action: CompanyActi
     case CompanyActionEnum.SET_PAGE: {
       return {
         ...state,
-        page: action.payload
+        perPage: action.payload
+      }
+    }
+    case CompanyActionEnum.SET_CURRENT_PAGE: {
+      return {
+        ...state,
+        currentPage: action.payload
       }
     }
     default:
