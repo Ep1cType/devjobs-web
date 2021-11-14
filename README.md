@@ -13,8 +13,8 @@ To get the running locally:
 
 ## Technology and library stack
 ***
--React JS
--Redux
--Redux-Thunk
--Typescript
--Sass
+- React JS
+- Redux
+- Redux-Thunk
+- Typescript
+- Sass
