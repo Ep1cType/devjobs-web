@@ -25,8 +25,6 @@ const MainPage: React.FC = () => {
   const [locationSearch, setLocationSearch] = useState<string>('');
   const [timeWorkingCheck, setTimeWorkingCheck] = useState<boolean>(false);
 
-  const [searchResult, setSearchResult] = useState([]);
-
   const lastIndex = currentPage * perPage;
   const CompanySlicedList = filteredCompanyList.slice(0, lastIndex);
 
@@ -53,8 +51,7 @@ const MainPage: React.FC = () => {
   return (
     <>
       <Filter
-        // isVisibleModal={isVisibleModal}
-        // setIsVisibleModal={setIsVisibleModal}
+        handleSearch={handleSearch}
         locationSearch={locationSearch}
         nameSearch={nameSearch}
         setLocationSearch={setLocationSearch}
@@ -62,9 +59,7 @@ const MainPage: React.FC = () => {
         timeWorkingCheck={timeWorkingCheck}
         setNameSearch={setNameSearch}
       />
-      <button onClick={() => handleSearch()}>SEARCH</button>
       <div className={s.mainSection}>
-        {/*<input value={nameSearch} onChange={(e) => handleSearch(e.target.value)}/>*/}
         <div className={s.container}>
           {isLoading
             ?
@@ -72,11 +67,11 @@ const MainPage: React.FC = () => {
             :
             <>
               <CompanyList companyList={CompanySlicedList}/>
-              <div className={s.pagination}>
+              {CompanySlicedList.length !== filteredCompanyList.length && <div className={s.pagination}>
                 <button onClick={() => loadMore()} className={s.pagination__button}>
                   Load More
                 </button>
-              </div>
+              </div>}
             </>
           }
         </div>

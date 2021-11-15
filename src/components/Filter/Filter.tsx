@@ -15,6 +15,7 @@ interface FilterProps {
   setNameSearch: React.Dispatch<React.SetStateAction<string>>;
   setLocationSearch: React.Dispatch<React.SetStateAction<string>>;
   setTimeWorkingCheck: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSearch: () => void;
   // isVisibleModal: boolean;
   // setIsVisibleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -27,6 +28,7 @@ const Filter: React.FC<FilterProps> = (
     nameSearch,
     setLocationSearch,
     setNameSearch,
+    handleSearch
     // isVisibleModal,
     // setIsVisibleModal
   }) => {
@@ -75,7 +77,7 @@ const Filter: React.FC<FilterProps> = (
             <div onClick={() => openModal()} className={s.filter__company__group}>
               <img src={hopperIcon} alt="filter group"/>
             </div>
-            <button className={s.filter__submit__button}>
+            <button onClick={() => handleSearch()} className={s.filter__submit__button}>
               <span className={s.filter__submit__text}>Search</span>
               <SearchIcon className={s.filter__submit__icon}/>
             </button>

@@ -50,21 +50,16 @@ export default function companyReducer(state = initialState, action: CompanyActi
       const searchValue = {
         searchByName: action.payload.nameSearch.toLowerCase().trim(),
         searchByLocation: action.payload.locationSearch.toLowerCase().trim(),
-        searchByTimeWorking: action.payload.timeWorkingCheck
+        searchByTimeWorking: action.payload.timeWorkingCheck ? "Full Time" : "",
       }
-      // if (searchValue) {
       return {
         ...state,
         filteredCompanyList: state.companyList.filter((company) =>
           company.company.toLowerCase().includes(searchValue.searchByName)
           && company.country.toLowerCase().includes(searchValue.searchByLocation)
+          && company.time.includes(searchValue.searchByTimeWorking)
         )
       }
-      // }
-      // return {
-      //   ...state,
-      //   filteredCompanyList: state.companyList
-      // }
     }
     default:
       return state;

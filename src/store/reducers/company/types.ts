@@ -48,7 +48,7 @@ export interface FindCompanyAction {
   payload: {
     nameSearch: string,
     locationSearch: string,
-    timeWorkingCheck: boolean,
+    timeWorkingCheck: string,
   }
 }
 
