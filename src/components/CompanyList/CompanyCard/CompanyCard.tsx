@@ -1,10 +1,9 @@
 import React from 'react';
 
-import {useNavigate, Location} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 import s from './CompanyCard.module.scss';
 import {ICompany} from "../../../types/ICompany";
-
 
 const CompanyCard: React.FC<ICompany> = (
   {
@@ -18,7 +17,6 @@ const CompanyCard: React.FC<ICompany> = (
   }) => {
 
   const navigate = useNavigate()
-
 
   return (
     <li className={s.companyCard} >

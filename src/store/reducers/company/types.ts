@@ -6,6 +6,7 @@ export interface CompanyState {
   isError: string;
   perPage: number;
   currentPage: number;
+  filteredCompanyList: ICompany[];
 }
 
 export enum CompanyActionEnum {
@@ -14,6 +15,7 @@ export enum CompanyActionEnum {
   SET_IS_ERROR = "SET_IS_ERROR",
   SET_PAGE = "SET_PAGE",
   SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
+  FIND_COMPANY = "FIND_COMPANY",
 }
 
 export interface SetCompanyListAction {
@@ -41,5 +43,14 @@ export interface SetCurrentPageAction {
   payload: number;
 }
 
+export interface FindCompanyAction {
+  type: CompanyActionEnum.FIND_COMPANY;
+  payload: {
+    nameSearch: string,
+    locationSearch: string,
+    timeWorkingCheck: boolean,
+  }
+}
+
 export type CompanyAction =
-  SetCompanyListAction | SetIsLoadingAction | SetIsErrorAction | SetPageAction | SetCurrentPageAction
+  SetCompanyListAction | SetIsLoadingAction | SetIsErrorAction | SetPageAction | SetCurrentPageAction | FindCompanyAction

@@ -5,7 +5,7 @@ import s from './Filter.module.scss';
 import hopperIcon from '../../assets/icons/hopper.svg';
 import SearchIcon from "../../assets/icons/SearchIcon/SearchIcon";
 import Modal from '../Modal/Modal';
-import FilterGroup from "../FilterGroup/FilterGroup";
+import InputGroup from "../InputGroup/InputGroup";
 
 
 interface FilterProps {
@@ -55,8 +55,8 @@ const Filter: React.FC<FilterProps> = (
               placeholder="Filter by title, companies, expertise…"
             />
           </div>
-          <div className={s.filterGroup__container}>
-            <FilterGroup
+          <div className={s.inputGroup__container}>
+            <InputGroup
               locationSearch={locationSearch}
               timeWorkingCheck={timeWorkingCheck}
               setLocationSearch={setLocationSearch}
@@ -64,7 +64,7 @@ const Filter: React.FC<FilterProps> = (
             />
           </div>
           <Modal active={isVisibleModal} closeModal={closeModal} >
-            <FilterGroup
+            <InputGroup
               locationSearch={locationSearch}
               timeWorkingCheck={timeWorkingCheck}
               setLocationSearch={setLocationSearch}

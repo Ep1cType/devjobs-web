@@ -14,6 +14,10 @@ export const CompanyActionCreators = {
     type: CompanyActionEnum.SET_COMPANY_LIST,
     payload: companyList,
   }),
+  findCompany: (payload: {}) => ({
+    type: CompanyActionEnum.FIND_COMPANY,
+    payload,
+  }),
   setCurrentPage: (currentPage: number): SetCurrentPageAction => ({
     type: CompanyActionEnum.SET_CURRENT_PAGE,
     payload: currentPage,

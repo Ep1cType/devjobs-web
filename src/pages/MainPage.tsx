@@ -10,22 +10,41 @@ import CompanyList from "../components/CompanyList/CompanyList";
 import Loader from "../components/Loader/Loader";
 
 const MainPage: React.FC = () => {
-  const {fetchCompanyList, setCurrentPage} = useActions();
+  const {fetchCompanyList, setCurrentPage, findCompany} = useActions();
 
-  const {companyList, isLoading, perPage, isError, currentPage} = useTypedSelector(state => state.company);
+  const {
+    companyList,
+    isLoading,
+    perPage,
+    isError,
+    currentPage,
+    filteredCompanyList
+  } = useTypedSelector(state => state.company);
 
   const [nameSearch, setNameSearch] = useState<string>('');
   const [locationSearch, setLocationSearch] = useState<string>('');
   const [timeWorkingCheck, setTimeWorkingCheck] = useState<boolean>(false);
 
+  const [searchResult, setSearchResult] = useState([]);
+
   const lastIndex = currentPage * perPage;
-  const CompanySlicedList = companyList.slice(0, lastIndex);
+  const CompanySlicedList = filteredCompanyList.slice(0, lastIndex);
+
+  console.log("Отфильтрованный список", filteredCompanyList)
 
   useEffect(() => {
     if (!companyList.length) {
       fetchCompanyList();
     }
   }, [])
+
+  const handleSearch = () => {
+    findCompany({
+      nameSearch,
+      locationSearch,
+      timeWorkingCheck
+    })
+  }
 
   const loadMore = () => {
     setCurrentPage(currentPage + 1);
@@ -43,7 +62,9 @@ const MainPage: React.FC = () => {
         timeWorkingCheck={timeWorkingCheck}
         setNameSearch={setNameSearch}
       />
+      <button onClick={() => handleSearch()}>SEARCH</button>
       <div className={s.mainSection}>
+        {/*<input value={nameSearch} onChange={(e) => handleSearch(e.target.value)}/>*/}
         <div className={s.container}>
           {isLoading
             ?

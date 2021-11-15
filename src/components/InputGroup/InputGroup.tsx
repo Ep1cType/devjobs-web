@@ -11,7 +11,7 @@ interface FilterGroupProps {
   setTimeWorkingCheck: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FilterGroup: React.FC<FilterGroupProps> = ({locationSearch, setLocationSearch, timeWorkingCheck, setTimeWorkingCheck}) => {
+const InputGroup: React.FC<FilterGroupProps> = ({locationSearch, setLocationSearch, timeWorkingCheck, setTimeWorkingCheck}) => {
   return (
     <>
       <div className={s.filter__location}>
@@ -39,4 +39,4 @@ const FilterGroup: React.FC<FilterGroupProps> = ({locationSearch, setLocationSea
   );
 };
 
-export default FilterGroup;
+export default InputGroup;
