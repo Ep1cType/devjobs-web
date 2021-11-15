@@ -4,6 +4,8 @@
 ***
 This is a job search app.
 
+Deploy link: https://ecstatic-fermi-baa0c0.netlify.app
+
 ## Getting started
 ***
 To get the running locally:
