@@ -12,7 +12,7 @@ interface CompanyListProps {
 const CompanyList: React.FC<CompanyListProps> = ({companyList}) => {
   return (
     <ul className={s.companyList}>
-      {companyList
+      {companyList.length
         ?
         companyList.map((company: any) => (
           <CompanyCard key={company.id}

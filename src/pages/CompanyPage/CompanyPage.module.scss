@@ -8,10 +8,16 @@
   &__content {
     width: 100%;
     height: 140px;
-
     display: flex;
-
     background-color: var(--white);
+    border-radius: 6px;
+
+    @include for-phone-only {
+      align-items: center;
+      flex-direction: column;
+      height: auto;
+      padding-bottom: 32px;
+    }
   }
 
 }
@@ -32,20 +38,41 @@
 
     height: 100%;
 
+    @include for-phone-only {
+      margin-bottom: 24px;
+    }
+
+
     &__img {
       height: 140px;
       width: 140px;
+
+      @include for-phone-only {
+        height: 50px;
+        width: 50px;
+        margin-top: -25px;
+        border-radius: 15px;
+      }
     }
   }
 
   &__name {
     font-size: 24px;
     font-weight: 700;
+    display: inline-block;
+
+    @include for-phone-only {
+      margin-bottom: 13px;
+    }
   }
 
   &__site {
     font-size: 16px;
-    color: var(--gray);
+    color: var(--darkGrey);
+
+    @include for-phone-only {
+      margin-bottom: 27px;
+    }
   }
 
   &__menu {
@@ -53,8 +80,13 @@
     width: 100%;
     justify-content: space-between;
     //align-items: center;
-
     padding: 40px 40px;
+
+    @include for-phone-only {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
 
     &__desc {
       display: flex;
@@ -73,7 +105,7 @@
     outline: none;
     border: none;
     padding: 16px 20px;
-    border-radius: 50px;
+    border-radius: 5px;
 
     font-size: 16px;
     font-weight: 700;
@@ -88,14 +120,206 @@
 
 .companyInfo {
 
+  margin-bottom: 53px;
+
   &__content {
     display: flex;
+    flex-direction: column;
     width: 100%;
 
     padding: 48px;
 
-
     background-color: var(--white);
+
+    @include for-phone-only {
+      padding: 40px 24px;
+    }
   }
 
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+
+    @include for-phone-only {
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__desc {
+    @include for-phone-only {
+      margin-bottom: 54px;
+    }
+  }
+
+  &__time {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--darkGrey);
+
+    margin-bottom: 11px;
+  }
+
+  &__vocation {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--veryDarkBlue);
+
+    margin-bottom: 14px;
+    margin-right: 20px;
+
+    @include for-phone-only {
+      font-size: 20px;
+    }
+  }
+
+  &__location {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--violet);
+
+  }
+
+
+  &__nav {
+
+    @include for-phone-only {
+      width: 100%;
+    }
+
+    &__button {
+      @extend .company__button;
+
+      color: var(--white);
+      background-color: var(--violet);
+
+      @include for-phone-only {
+        width: 100%;
+      }
+    }
+  }
+
+
+  &__about {
+
+    &__value {
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 400;
+      color: var(--darkGrey);
+    }
+    margin-bottom: 40px;
+  }
+
+  &__requirements {
+
+    &__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--veryDarkBlue);
+
+      margin-bottom: 28px;
+    }
+
+    &__value {
+      @extend .companyInfo__about__value;
+
+      margin-bottom: 24px;
+    }
+
+    &__list {
+      margin-bottom: 40px;
+    }
+
+    &__item {
+      @extend .companyInfo__about__value;
+      margin-bottom: 8px;
+      list-style: disc none inside;
+
+
+      &::marker {
+        color: var(--violet);
+      }
+    }
+  }
+
+  &__task {
+    margin-bottom: 24px;
+
+    &__title {
+      @extend .companyInfo__requirements__title;
+    }
+
+    &__value {
+      @extend .companyInfo__about__value;
+    }
+
+    &__list {
+
+    }
+
+    &__item {
+      @extend .companyInfo__about__value;
+      margin-bottom: 8px;
+      list-style-position: inside;
+
+      &::marker {
+        font-weight: 700;
+        color: var(--violet);
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 25px 40px;
+  background-color: var(--white);
+  border-radius: 6px;
+
+  @include for-phone-only {
+    padding: 25px 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__info {
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--veryDarkBlue);
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--darkGrey);
+  }
+
+  &__nav {
+    @include for-phone-only {
+      width: 100%;
+    }
+
+    &__button {
+      @extend .companyInfo__nav__button;
+
+      @include for-phone-only {
+        width: 100%;
+      }
+    }
+  }
 }
